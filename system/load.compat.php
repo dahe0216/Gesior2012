@@ -99,18 +99,23 @@ function check_name($name)
 	return true;
 }
 
-function check_account_name($name)
+function check_account_name($number)
 {
-	$name = (string) $name;
-	$temp = strspn("$name", "QWERTYUIOPASDFGHJKLZXCVBNM0123456789");
-	if ($temp != strlen($name))
-		return false;
-	if(strlen($name) < 1)
-		return false;
-	if(strlen($name) > 32)
-		return false;
+    if (! in_array(strlen($number), range(7, 15))) {
+        return false;
+    }
 
-	return true;
+    return true;
+	// $name = (string) $name;
+	// $temp = strspn("$name", "QWERTYUIOPASDFGHJKLZXCVBNM0123456789");
+	// if ($temp != strlen($name))
+	// 	return false;
+	// if(strlen($name) < 1)
+	// 	return false;
+	// if(strlen($name) > 32)
+	// 	return false;
+
+	// return true;
 }
 
 function check_name_new_char($name)
